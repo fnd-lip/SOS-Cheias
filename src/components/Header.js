@@ -1,43 +1,61 @@
-"use client"
-import { useState, useEffect } from "react"
-import { doLogin } from "@/services/Web3Service"
+"use client";
+
+import { useEffect, useState } from "react";
+import { doLogin } from "@/services/Web3Service";
 
 export default function Header() {
+  const [wallet, setWallet] = useState("");
 
-    const [wallet, setWallet] = useState(" ");
+  useEffect(() => {
+    setWallet(localStorage.getItem("wallet") || "");
+  }, []);
 
-    useEffect(() => {
-        setWallet(localStorage.getItem("wallet") || " ");
-    }, [])
-    function btnLoginClick() {
-        doLogin()
-        .then(wallet => setWallet(wallet))
-        .catch(err => {
-            console.error(err);
-            alert(err.message);
-        })
-    }
-     return (
-        <header className="p-3 text-bg-dark">
-            <div className="container">
-                <div className="d-flex flex-wrap align-items-center justify-content-center">
-                    <a href="/" className="justify-content-start" style={{ textDecoration: "none" }}>  
-                        <h1 className="fw-bold text-light">SOS-Cheias</h1>
-                    </a>
+  function btnLoginClick() {
+    doLogin()
+      .then((connectedWallet) => setWallet(connectedWallet))
+      .catch((err) => {
+        console.error(err);
+        alert(err.message);
+      });
+  }
 
-                    <div className="text-end col-9">
-                        {
-                            wallet
-                                ?<a href="/create" className="btn btn-warning">Pedir ajuda</a>
-                                :<button type="button" className="btn btn-outline-light me-2" onClick={btnLoginClick}>
-                                    <img src="/metamask.svg" width="24" className="me-3"/>
-                                    Entrar
-                                </button>
-                        }
-                        
-                    </div>
-                </div>
-            </div>
-        </header>
-     )
+  return (
+    <header className="p-3 text-bg-dark">
+      <div className="container">
+        <div className="d-flex flex-wrap align-items-center justify-content-between">
+
+          <a href="/" className="text-decoration-none">
+            <h1 className="fw-bold text-light m-0">SOS-Cheias</h1>
+          </a>
+
+          <ul className="nav me-auto ms-4">
+            <li className="nav-item">
+              <a href="/" className="nav-link text-light">Início</a>
+            </li>
+            <li className="nav-item">
+              <a href="/create" className="nav-link text-light">Registrar pedido</a>
+            </li>
+          </ul>
+
+          <div>
+            {wallet ? (
+              <span className="text-light small">
+                {wallet.slice(0,6)}...{wallet.slice(-4)}
+              </span>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-outline-light"
+                onClick={btnLoginClick}
+              >
+                <img src="/metamask.svg" width="24" className="me-2"/>
+                Entrar com MetaMask
+              </button>
+            )}
+          </div>
+
+        </div>
+      </div>
+    </header>
+  );
 }
