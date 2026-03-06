@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto Next.js
 
-## Getting Started
+Este é um projeto **[Next.js](https://nextjs.org/)** criado com **[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)**.
 
-First, run the development server:
+---
+
+## 🚀 Começando
+
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando o arquivo:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+app/page.js
+```
 
-## Learn More
+A página será atualizada automaticamente conforme você editar e salvar o arquivo.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔤 Fontes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Este projeto utiliza **[`next/font`](https://nextjs.org/docs/basic-features/font-optimization)** para otimizar e carregar automaticamente a fonte **Inter**, uma fonte personalizada do Google.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 Saiba Mais
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Para aprender mais sobre **Next.js**, veja os seguintes recursos:
+
+- 📖 **[Documentação do Next.js](https://nextjs.org/docs)** — aprenda sobre os recursos e a API do Next.js.
+- 🎓 **[Aprenda Next.js](https://nextjs.org/learn)** — tutorial interativo oficial.
+
+Você também pode visitar o repositório oficial:
+
+- 💻 **[Repositório Next.js no GitHub](https://github.com/vercel/next.js/)**
+
+Feedback e contribuições são sempre bem-vindos!
+
+---
+
+## 🚀 Deploy na Vercel
+
+A maneira mais fácil de publicar seu aplicativo Next.js é utilizando a plataforma **[Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)**, criada pelos desenvolvedores do Next.js.
+
+Para mais detalhes, consulte a documentação:
+
+📄 **[Documentação de Deploy do Next.js](https://nextjs.org/docs/deployment)**
