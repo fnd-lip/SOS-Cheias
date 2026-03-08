@@ -3,14 +3,13 @@
 import { useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { openRequest } from "@/services/Web3Service";
+import { registrarPedido } from "@/services/Web3Service";
 
 export default function CreatePage() {
   const [request, setRequest] = useState({
     title: "",
     description: "",
-    contact: "",
-    goal: ""
+    contact: ""
   });
 
   const [txHash, setTxHash] = useState("");
@@ -33,16 +32,22 @@ export default function CreatePage() {
       setSending(true);
       setTxHash("");
 
-      const result = await openRequest(request);
+      const result = await registrarPedido(request);
 
       if (result?.transactionHash) {
         setTxHash(result.transactionHash);
       }
 
       alert("Pedido registrado com sucesso na blockchain.");
+
+      setRequest({
+        title: "",
+        description: "",
+        contact: ""
+      });
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      alert(err.message || "Erro ao registrar pedido.");
     } finally {
       setSending(false);
     }
@@ -87,7 +92,7 @@ export default function CreatePage() {
                   <label htmlFor="description">Descrição</label>
                 </div>
 
-                <div className="form-floating mb-3">
+                <div className="form-floating mb-4">
                   <input
                     type="text"
                     id="contact"
@@ -98,18 +103,6 @@ export default function CreatePage() {
                     placeholder="Contato"
                   />
                   <label htmlFor="contact">Contato</label>
-                </div>
-
-                <div className="form-floating mb-4">
-                  <input
-                    type="number"
-                    id="goal"
-                    className="form-control"
-                    value={request.goal}
-                    onChange={onInputChange}
-                    placeholder="Meta"
-                  />
-                  <label htmlFor="goal">Meta em BNB</label>
                 </div>
 
                 <div className="d-flex gap-2">

@@ -1,72 +1,73 @@
 [
 	{
+		"anonymous": false,
 		"inputs": [
 			{
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "id",
 				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "autor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "titulo",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "descricao",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "contato",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
 			}
 		],
-		"name": "closeRequest",
+		"name": "PedidoRegistrado",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_titulo",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_descricao",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_contato",
+				"type": "string"
+			}
+		],
+		"name": "registrarPedido",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			}
-		],
-		"name": "donate",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "contact",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "goal",
-				"type": "uint256"
-			}
-		],
-		"name": "openRequest",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "startId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "quantity",
-				"type": "uint256"
-			}
-		],
-		"name": "getOpenRequests",
+		"inputs": [],
+		"name": "listarPedidos",
 		"outputs": [
 			{
 				"components": [
@@ -77,46 +78,31 @@
 					},
 					{
 						"internalType": "address",
-						"name": "author",
+						"name": "autor",
 						"type": "address"
 					},
 					{
 						"internalType": "string",
-						"name": "title",
+						"name": "titulo",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "description",
+						"name": "descricao",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "contact",
+						"name": "contato",
 						"type": "string"
 					},
 					{
 						"internalType": "uint256",
 						"name": "timestamp",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "balance",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "goal",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "open",
-						"type": "bool"
 					}
 				],
-				"internalType": "struct Request[]",
+				"internalType": "struct SOSCheiasRegistro.Pedido[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -126,71 +112,12 @@
 	},
 	{
 		"inputs": [],
-		"name": "lastId",
+		"name": "ultimoId",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "requests",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "author",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "contact",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "timestamp",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "balance",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "goal",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "open",
-				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
